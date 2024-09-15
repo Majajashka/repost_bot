@@ -1,7 +1,7 @@
 import logging
 
 from aiogram import Router, Bot
-from aiogram.filters import Command, ChatMemberUpdatedFilter, ADMINISTRATOR, JOIN_TRANSITION
+from aiogram.filters import Command, ChatMemberUpdatedFilter, JOIN_TRANSITION
 from aiogram.types import Message, ChatMemberUpdated
 
 from filters import ChatTypeFilter
@@ -40,8 +40,8 @@ async def added_groups(event: ChatMemberUpdated, bot: Bot, admin_id: int):
         await bot.send_message(chat_id=admin_id,
                                text=f"🎉 Бот был успешно добавлен в ваш канал: \n\n"
 
-                                    f"Название: <b>{f'@{event.chat.username}' or event.chat.title or 'Неизвестно'}</b>\n"
-                                    f"ID: <code>{event.chat.id}</code>)"
+                                    f"Канал: {f'@{event.chat.username}' or f'<b>event.chat.title</b>' or '<b>Неизвестно</b>'}\n"
+                                    f"ID: <code>{event.chat.id}</code>"
                                )
     else:
         logging.info(
