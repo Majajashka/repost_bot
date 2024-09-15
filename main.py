@@ -27,6 +27,7 @@ async def main():
     logger.info('Including routers...')
     dp.include_router(router)
     dp['repost_chat_id'] = int(os.getenv('CHAT_ID'))
+    dp['admin_id'] = int(os.getenv('ADMIN_ID'))
 
     logger.info('Running polling...')
     await dp.start_polling(bot)
