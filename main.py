@@ -1,6 +1,7 @@
 import asyncio
 import logging
 import os
+import dotenv
 
 from aiogram import Dispatcher, Bot
 from aiogram.client.default import DefaultBotProperties
@@ -9,6 +10,8 @@ from aiogram.enums import ParseMode
 from handlers import router
 
 logger = logging.getLogger(__name__)
+
+dotenv.load_dotenv('.env')
 
 
 async def main():
